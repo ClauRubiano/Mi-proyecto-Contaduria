@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario 350</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+    <h1>Liquidación Formulario 350</h1>
+    <h3>Total Retenciones: {{ total_retenciones }}</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Concepto</th>
+                <th>Débito</th>
+                <th>Crédito</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in retenciones %}
+            <tr>
+                <td>{{ item.asiento.fecha }}</td>
+                <td>{{ item.asiento.concepto }}</td>
+                <td>{{ item.debito }}</td>
+                <td>{{ item.credito }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No hay retenciones registradas.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

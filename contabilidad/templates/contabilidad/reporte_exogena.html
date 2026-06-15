@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte de Información Exógena - DIAN</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f6f9; }
+        h1 { color: #1e3a5f; border-bottom: 3px solid #007bff; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        th { background-color: #1e3a5f; color: white; padding: 15px; text-align: left; }
+        td { padding: 12px 15px; border-bottom: 1px solid #e0e0e0; }
+        .monto { text-align: right; font-weight: bold; color: #2c3e50; }
+        .boton { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Módulo de Automatización Tributaria - Formato Exógena (Gastos)</h1>
+    <p>Este reporte consolida los pagos acumulados a terceros para la presentación de medios magnéticos ante la DIAN de forma automatizada.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>NIT / Cédula del Tercero</th>
+                <th>Nombre o Razón Social</th>
+                <th style="text-align: right;">Pago o Abono en Cuenta (Acumulado)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fila in reporte %}
+            <tr>
+                <td>{{ fila.tercero__nit_cedula }}</td>
+                <td>{{ fila.tercero__nombre_razon_social }}</td>
+                <td class="monto">$ {{ fila.pago_acumulado }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" style="text-align: center; color: #999; padding: 30px;">No se han encontrado gastos asociados a terceros en este período.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/admin/" class="boton">← Volver al Panel de Administración</a>
+</body>
+</html>

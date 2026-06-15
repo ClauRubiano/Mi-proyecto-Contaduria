@@ -1,0 +1,7 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('reporte-dian/', views.reporte_exogena_dian, name='reporte_dian'),
+    path('formulario-310/', views.liquidar_formulario_310, name='formulario_310'),
+]

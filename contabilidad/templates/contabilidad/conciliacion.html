@@ -1,0 +1,28 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<h2>Conciliación Bancaria</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Valor</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mov in pendientes %}
+        <tr>
+            <td>{{ mov.fecha }}</td>
+            <td>{{ mov.descripcion }}</td>
+            <td>{{ mov.valor }}</td>
+            <td>
+                <button>Conciliar con Asiento...</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

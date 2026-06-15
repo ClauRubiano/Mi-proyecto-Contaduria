@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pre-validador Formulario 310 - INC</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f8f9fa; }
+        .contenedor { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1 { color: #d32f2f; border-bottom: 3px solid #d32f2f; padding-bottom: 10px; margin-bottom: 5px; }
+        .subtitulo { color: #555; font-style: italic; margin-bottom: 25px; }
+        .tarjeta-resultado { background-color: #fff3e0; border-left: 5px solid #ff9800; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
+        .tarjeta-resultado h3 { margin: 0 0 5px 0; color: #e65100; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th { background-color: #343a40; color: white; padding: 12px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #dee2e6; font-size: 15px; }
+        .total { font-weight: bold; background-color: #e9ecef; }
+        .monto { text-align: right; font-weight: bold; }
+        .boton { display: inline-block; margin-top: 25px; padding: 10px 20px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px; }
+        .boton:hover { background-color: #5a6268; }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Borrador Formulario 310 - Impuesto Nacional al Consumo</h1>
+        <p class="subtitulo">Automatización de Liquidación del Impuesto para Expendio de Comidas y Bebidas (Tarifa 8%)</p>
+
+        <div class="tarjeta-resultado">
+            <h3>Resumen Ejecutivo DIAN</h3>
+            <p>Se analizaron los movimientos de ingresos comerciales del período para consolidar la base gravable y el impuesto generado.</p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Concepto Declaración</th>
+                    <th style="text-align: right;">Base Gravable</th>
+                    <th style="text-align: right;">Impuesto Generado (8%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Servicios de expendio de comidas y bebidas (Casilla 37)</td>
+                    <td class="monto">$ {{ base_ingresos }}</td>
+                    <td class="monto" style="color: #d32f2f;">$ {{ impuesto_total }}</td>
+                </tr>
+                <tr class="total">
+                    <td>TOTAL IMPUESTO A PAGAR (Casilla 48)</td>
+                    <td></td>
+                    <td class="monto" style="color: #d32f2f; font-size: 18px;">$ {{ impuesto_total }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="/admin/" class="boton">← Volver al Panel de Administración</a>
+    </div>
+</body>
+</html>

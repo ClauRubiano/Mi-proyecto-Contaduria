@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario 110</title>
+</head>
+<body>
+    <h1>Resultados del Formulario 110</h1>
+    
+    <ul>
+        <li>Ingresos: {{ ingresos }}</li>
+        <li>Gastos: {{ gastos }}</li>
+        <li><strong>Utilidad antes de impuesto: {{ utilidad_antes_impuesto }}</strong></li>
+    </ul>
+
+    <hr>
+    <a href="{% url 'index' %}">Volver al inicio</a>
+</body>
+</html>
